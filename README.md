@@ -70,6 +70,13 @@ await _bitNob.buildWithOptions(
 Note: successUrl keep blank.
 ```
 
+## 📷 Screenshots
+
+| Platform | Screenshot |
+| ------------- | ------------- |
+| Android | <img height="480" src="https://github.com/bitnob/bitnob_flutter_sdk/blob/main/images/android_checkout.png"> <img height="480" src="https://github.com/bitnob/bitnob_flutter_sdk/blob/main/images/android_payment_success.png"> <img height="480" src="https://github.com/bitnob/bitnob_flutter_sdk/blob/main/images/android_timeout.png"> |
+| iOS | <img height="414" src="https://github.com/bitnob/bitnob_flutter_sdk/blob/main/images/ios_checkout.png"> <img height="414" src="https://github.com/bitnob/bitnob_flutter_sdk/blob/main/images/ios_payment_success.png">  <img height="414" src="https://github.com/bitnob/bitnob_flutter_sdk/blob/main/images/ios_timeout.png"> |
+
 # License
 ```
 MIT License
