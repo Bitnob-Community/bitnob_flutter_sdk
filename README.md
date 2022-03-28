@@ -69,6 +69,10 @@ await _bitNob.buildWithOptions(
 ```
 Note: successUrl keep blank.
 ```
+## How to get "publicKey" to use bitnob-react-native?
+
+- Please [`sign up here`](https://app.bitnob.co/accounts/signup), Then follow this [`link`](https://docs.bitnob.com/docs/api-keys) get publicKey.
+
 
 ## 📷 Screenshots
 
