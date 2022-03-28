@@ -1,6 +1,6 @@
 # bitnob
 
-The sdk allows user to create bitcoin checkout invoice and pay via bitcoin using lighting or onchain bitcoin wallets like bitnob wallet or BlueWallet.
+This SDK equips online businesses using react native with the ability to accept and process bitcoin payments via on-chain or lightning seamlessly.
 
 
 ## Platform Support
@@ -74,8 +74,8 @@ Note: successUrl keep blank.
 
 | Platform | Screenshot |
 | ------------- | ------------- |
-| Android | <img height="480" src="https://github.com/bitnob/bitnob_flutter_sdk/blob/main/images/android_checkout.png"> <img height="480" src="https://github.com/bitnob/bitnob_flutter_sdk/blob/main/images/android_payment_success.png"> <img height="480" src="https://github.com/bitnob/bitnob_flutter_sdk/blob/main/images/android_timeout.png"> |
-| iOS | <img height="414" src="https://github.com/bitnob/bitnob_flutter_sdk/blob/main/images/ios_checkout.png"> <img height="414" src="https://github.com/bitnob/bitnob_flutter_sdk/blob/main/images/ios_payment_success.png">  <img height="414" src="https://github.com/bitnob/bitnob_flutter_sdk/blob/main/images/ios_timeout1.png"> |
+| Android | <img height="480" src="https://bitnobwhmcsplugin.s3.eu-west-2.amazonaws.com/images/android_checkout.png"> <img height="480" src="https://bitnobwhmcsplugin.s3.eu-west-2.amazonaws.com/images/android_payment_success.png"> <img height="480" src="https://bitnobwhmcsplugin.s3.eu-west-2.amazonaws.com/images/android_timeout.png"> |
+| iOS | <img height="414" src="https://bitnobwhmcsplugin.s3.eu-west-2.amazonaws.com/images/ios_checkout.png"> <img height="414" src="https://bitnobwhmcsplugin.s3.eu-west-2.amazonaws.com/images/ios_payment_success.png">  <img height="414" src="https://bitnobwhmcsplugin.s3.eu-west-2.amazonaws.com/images/ios_timeout1.png"> |
 
 # License
 ```
