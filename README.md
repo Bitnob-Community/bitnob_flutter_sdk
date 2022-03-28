@@ -71,7 +71,7 @@ Note: successUrl keep blank.
 ```
 ## How to get "publicKey" to use bitnob-react-native?
 
-- Please [`sign up here`](https://app.bitnob.co/accounts/signup), Then follow this [`link`](https://docs.bitnob.com/docs/api-keys) get publicKey.
+- Please [`Sign up`](https://app.bitnob.co/accounts/signup) here, Then follow this [`link`](https://docs.bitnob.com/docs/api-keys) to get publicKey.
 
 
 ## 📷 Screenshots
