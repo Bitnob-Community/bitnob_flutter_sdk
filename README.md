@@ -1,6 +1,6 @@
 # bitnob
 
-This SDK equips online businesses using react native with the ability to accept and process bitcoin payments via on-chain or lightning seamlessly.
+This SDK equips online businesses using flutter with the ability to accept and process bitcoin payments via on-chain or lightning seamlessly.
 
 
 ## Platform Support

@@ -1,6 +1,6 @@
 name: bitnob
-description: The sdk allows user to create bitcoin checkout invoice and pay via bitcoin using lighting or onchain bitcoin wallets like bitnob wallet or BlueWallet.
-version: 0.0.2
+description: This SDK equips online businesses using flutter with the ability to accept and process bitcoin payments via on-chain or lightning seamlessly.
+version: 0.0.3
 homepage: https://github.com/bitnob/bitnob_flutter_sdk.git
 
 environment:
