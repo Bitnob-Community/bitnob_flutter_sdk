@@ -1,7 +1,6 @@
 library bitnob;
 
-export 'bitnob.dart' hide BitNob;
-import 'package:bitnob/Screens/preview.dart';
+import 'package:bitnob/screens/preview.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 

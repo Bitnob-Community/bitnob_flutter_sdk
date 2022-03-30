@@ -37,13 +37,13 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<void> payWithOptions() async {
     await _bitNob.buildWithOptions(
       baseUrl: "https://staging-api.flowertop.xyz",
-      description: "test75",
-      callbackUrl: "test75",
+      description: "test114",
+      callbackUrl: "test114",
       successUrl: "",
-      notificationEmail: "test75",
-      customerEmail: "test75",
+      notificationEmail: "test114",
+      customerEmail: "test114",
       satoshis: 2000,
-      reference: "test75",
+      reference: "test114",
       publicKey: "pk.1a593.b3b0b105da63ff7b70f3310f355ce0",
       context: context,
       failCallback: (fail) {

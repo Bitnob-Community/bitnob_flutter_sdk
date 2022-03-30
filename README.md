@@ -27,7 +27,7 @@ You just need to add `bitnob` as a [dependency in your pubspec.yaml file](https:
 
 ```yaml
 dependencies:
-  bitnob: ^0.0.1
+  bitnob: ^0.0.2
 ```
 -Run `flutter packages get` to install the package
 
@@ -69,7 +69,7 @@ await _bitNob.buildWithOptions(
 ```
 Note: successUrl keep blank.
 ```
-## How to get "publicKey" to use bitnob-react-native?
+## How to get "publicKey" to use bitnob SDK?
 
 - Please [`Sign up`](https://app.bitnob.co/accounts/signup) here, Then follow this [`link`](https://docs.bitnob.com/docs/api-keys) to get publicKey.
 

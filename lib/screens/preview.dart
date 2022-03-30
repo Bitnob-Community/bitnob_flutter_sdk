@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'dart:async';
-import 'package:bitnob/Models/model.dart';
+import 'package:bitnob/models/model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
