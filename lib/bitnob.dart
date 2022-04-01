@@ -1,11 +1,16 @@
 library bitnob;
 
-import 'package:bitnob/screens/preview.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'src/screens/preview.dart';
 
+///This is main bitnob class.
 class BitNob {
+  ///Create dio object for apicall.
+
   Dio dio = Dio();
+
+  ///This method use for payment
 
   Future buildWithOptions({
     required String baseUrl,
@@ -31,6 +36,8 @@ class BitNob {
     )
         closeCallBack,
   }) async {
+    ///Here navigate to the webview screen.
+
     await Navigator.push(
         context,
         MaterialPageRoute(
