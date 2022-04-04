@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## [0.0.6] - (1st April 2022)
+## [0.0.6] - (4th April 2022)
 
 * Update the example app
 
