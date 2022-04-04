@@ -1,4 +1,9 @@
 # CHANGELOG
+
+## [0.0.6] - (1st April 2022)
+
+* Update the example app
+
 ## [0.0.5] - (1st April 2022)
 
 *  Fix version number issue
