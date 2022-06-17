@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_print
-
 import 'dart:async';
 import 'package:bitnob/src/models/model.dart';
 import 'package:dio/dio.dart';
@@ -56,7 +54,7 @@ class _PreViewScreenState extends State<PreViewScreen> {
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
       _apicallForPayMent();
     });
   }
@@ -75,8 +73,6 @@ class _PreViewScreenState extends State<PreViewScreen> {
         Response response = await dio
             .get(widget.baseUrl! + checkout_status + modelClass!.data!.id!);
 
-        print(widget.baseUrl! + checkout_status + modelClass!.data!.id!);
-
         if (response.data['data']['status'].toString().toLowerCase() ==
             "paid") {
           timer.cancel();
@@ -84,7 +80,7 @@ class _PreViewScreenState extends State<PreViewScreen> {
         }
       } on DioError catch (e) {
         timer.cancel();
-        widget.failCallback(e.response!.data);
+        widget.failCallback(e.error);
       }
     });
   }
@@ -116,7 +112,7 @@ class _PreViewScreenState extends State<PreViewScreen> {
         Navigator.pop(context);
       }
     } on DioError catch (e) {
-      widget.failCallback(e.response!.data);
+      widget.failCallback(e.error);
       Navigator.pop(context);
     }
   }
@@ -124,9 +120,9 @@ class _PreViewScreenState extends State<PreViewScreen> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: Colors.black,
-      statusBarIconBrightness: Brightness.light, // For Android (dark icons)
-      statusBarBrightness: Brightness.dark,
+      statusBarColor: Colors.transparent,
+      statusBarBrightness: Brightness.light, // For iOS: (dark icons)
+      statusBarIconBrightness: Brightness.dark, // For Android: (dark icons)
       // status bar color
     ));
     return Scaffold(

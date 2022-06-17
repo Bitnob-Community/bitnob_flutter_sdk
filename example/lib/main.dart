@@ -64,6 +64,32 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  Future<void> initiateOauth() async {
+    await _bitNob.initiateOauth(
+      baseUrl: "https://staging-oauth.bitnob.co",
+      clientId: "fe2b4768b3c5afdb27b2",
+      scope: "user:ln_address",
+      state: "55jbjfgdfjhfghfhgsf",
+      redirectUrl: "https://www.google.com/",
+      failCallback: (fail) {
+        if (kDebugMode) {
+          print("Fail=============> " + fail.toString());
+        }
+      },
+      successCallback: (success) {
+        if (kDebugMode) {
+          print("Success=============> " + success.toString());
+        }
+      },
+      closeCallBack: (close) {
+        if (kDebugMode) {
+          print("Close=============> " + close.toString());
+        }
+      },
+      context: context,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,7 +105,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 await payWithOptions();
               },
               child: const Text("Pay"),
-            )
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                await initiateOauth();
+              },
+              child: const Text("InitiateOauth"),
+            ),
           ],
         ),
       ),

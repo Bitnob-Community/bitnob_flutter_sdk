@@ -41,7 +41,7 @@ import 'package:bitnob/bitnob.dart';
 final BitNob _bitNob = BitNob();
 ```
 
-## Example
+## Example 1
 ```dart
 await _bitNob.buildWithOptions(
       baseUrl: "your base url",
@@ -68,6 +68,33 @@ await _bitNob.buildWithOptions(
 
 ```
 Note: successUrl keep blank.
+```
+
+## Example 2
+```dart
+    await _bitNob.initiateOauth(
+      baseUrl: "https://staging-oauth.bitnob.co",
+      clientId: "fe2b4768b3c5afdb27b2",
+      scope: "user:ln_address",
+      state: "bbdbbbjjk",
+      redirectUrl: "https://www.google.com",
+      failCallback: (fail) {
+        if (kDebugMode) {
+          print("Fail=============> " + fail.toString());
+        }
+      },
+      successCallback: (success) {
+        if (kDebugMode) {
+          print("Success=============> " + success.toString());
+        }
+      },
+      closeCallBack: (close) {
+        if (kDebugMode) {
+          print("Close=============> " + close.toString());
+        }
+      },
+      context: context,
+    );
 ```
 ## How to get "publicKey" to use bitnob SDK?
 

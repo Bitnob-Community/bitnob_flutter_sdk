@@ -1,15 +1,11 @@
 library bitnob;
 
-import 'package:dio/dio.dart';
+import 'package:bitnob/src/screens/oauth_preview.dart';
 import 'package:flutter/material.dart';
 import 'src/screens/preview.dart';
 
 ///This is main bitnob class.
 class BitNob {
-  ///Create dio object for apicall.
-
-  Dio dio = Dio();
-
   ///This method use for payment
 
   Future buildWithOptions({
@@ -51,6 +47,37 @@ class BitNob {
             satoshis: satoshis,
             reference: reference,
             publicKey: publicKey,
+            closeCallBack: closeCallBack,
+            failCallback: failCallback,
+            successCallback: successCallback,
+          ),
+        ));
+    return null;
+  }
+
+  ///initiateOauth method use for payment
+  Future initiateOauth({
+    required String baseUrl,
+    required String? clientId,
+    required String? scope,
+    required String? state,
+    required String? redirectUrl,
+    required Function(dynamic response) successCallback,
+    required Function(dynamic response) failCallback,
+    required Function(dynamic response) closeCallBack,
+    required BuildContext context,
+  }) async {
+    ///Here navigate to the webview screen.
+
+    await Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => OAuthPreviewScreen(
+            baseUrl: baseUrl,
+            clientId: clientId,
+            redirectUrl: redirectUrl,
+            scope: scope,
+            state: state,
             closeCallBack: closeCallBack,
             failCallback: failCallback,
             successCallback: successCallback,
