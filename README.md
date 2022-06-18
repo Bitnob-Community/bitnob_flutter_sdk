@@ -41,10 +41,10 @@ import 'package:bitnob/bitnob.dart';
 final BitNob _bitNob = BitNob();
 ```
 
-## Example 1
+## Checkout Example
 ```dart
 await _bitNob.buildWithOptions(
-      baseUrl: "your base url",
+      mode: "set mode(sandbox or production)",
       description: "test",
       callbackUrl: "test",
       successUrl: "",
@@ -69,13 +69,22 @@ await _bitNob.buildWithOptions(
 ```
 Note: successUrl keep blank.
 ```
+## How to get "publicKey" to use bitnob SDK?
 
-## Example 2
+- Please [`Sign up`](https://app.bitnob.co/accounts/signup) here, Then follow this [`link`](https://docs.bitnob.com/docs/api-keys) to get publicKey.
+
+## OAuth Example
 ```dart
     await _bitNob.initiateOauth(
-      baseUrl: "https://staging-oauth.bitnob.co",
+      mode: "set mode(sandbox or production)",
       clientId: "fe2b4768b3c5afdb27b2",
-      scope: "user:ln_address",
+      scope: [
+        "user:custom_ln_address",
+        "user:verification_level",
+        "user:email",
+        "user:username",
+        "user:ln_address"
+      ],
       state: "bbdbbbjjk",
       redirectUrl: "https://www.google.com",
       failCallback: (fail) {
@@ -96,9 +105,10 @@ Note: successUrl keep blank.
       context: context,
     );
 ```
-## How to get "publicKey" to use bitnob SDK?
+## How to get "clientId" to use bitnob SDK?
 
-- Please [`Sign up`](https://app.bitnob.co/accounts/signup) here, Then follow this [`link`](https://docs.bitnob.com/docs/api-keys) to get publicKey.
+- Please [`Sign up`](https://app.bitnob.co/accounts/signup) here, Then follow this [`link`](https://docs.bitnob.com/docs/bitnob-for-business-oauth-20) to get publicKey.
+
 
 
 ## 📷 Screenshots

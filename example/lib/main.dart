@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> payWithOptions() async {
     await _bitNob.buildWithOptions(
-      baseUrl: "your base url",
+      mode: Mode.sandbox,
       description: "test133",
       callbackUrl: "test133",
       successUrl: "",
@@ -66,9 +66,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> initiateOauth() async {
     await _bitNob.initiateOauth(
-      baseUrl: "https://staging-oauth.bitnob.co",
+      mode: Mode.sandbox,
       clientId: "fe2b4768b3c5afdb27b2",
-      scope: "user:ln_address",
+      scope: [
+        "user:custom_ln_address",
+        "user:verification_level",
+        "user:email",
+        "user:username",
+        "user:ln_address"
+      ],
       state: "55jbjfgdfjhfghfhgsf",
       redirectUrl: "https://www.google.com/",
       failCallback: (fail) {

@@ -9,7 +9,7 @@ class BitNob {
   ///This method use for payment
 
   Future buildWithOptions({
-    required String baseUrl,
+    required Mode mode,
     required String description,
     required String callbackUrl,
     required String successUrl,
@@ -38,7 +38,7 @@ class BitNob {
         context,
         MaterialPageRoute(
           builder: (context) => PreViewScreen(
-            baseUrl: baseUrl,
+            mode: mode,
             description: description,
             callbackUrl: callbackUrl,
             successUrl: successUrl,
@@ -57,11 +57,11 @@ class BitNob {
 
   ///initiateOauth method use for payment
   Future initiateOauth({
-    required String baseUrl,
-    required String? clientId,
-    required String? scope,
-    required String? state,
-    required String? redirectUrl,
+    required Mode mode,
+    required String clientId,
+    required List<String> scope,
+    required String state,
+    required String redirectUrl,
     required Function(dynamic response) successCallback,
     required Function(dynamic response) failCallback,
     required Function(dynamic response) closeCallBack,
@@ -73,7 +73,7 @@ class BitNob {
         context,
         MaterialPageRoute(
           builder: (context) => OAuthPreviewScreen(
-            baseUrl: baseUrl,
+            mode: mode,
             clientId: clientId,
             redirectUrl: redirectUrl,
             scope: scope,
@@ -85,4 +85,9 @@ class BitNob {
         ));
     return null;
   }
+}
+
+enum Mode {
+  sandbox,
+  production,
 }

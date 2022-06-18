@@ -1,25 +1,25 @@
+import 'package:bitnob/bitnob.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-// ignore: must_be_immutable
 class OAuthPreviewScreen extends StatefulWidget {
-  final String? baseUrl;
-  final String? clientId;
-  final String? scope;
-  final String? state;
-  final String? redirectUrl;
-  Function(
+  final Mode mode;
+  final String clientId;
+  final List scope;
+  final String state;
+  final String redirectUrl;
+  final Function(
     dynamic response,
   ) successCallback;
-  Function(
+  final Function(
     dynamic response,
   ) failCallback;
-  Function(dynamic response) closeCallBack;
+  final Function(dynamic response) closeCallBack;
 
-  OAuthPreviewScreen(
+  const OAuthPreviewScreen(
       {Key? key,
-      required this.baseUrl,
+      required this.mode,
       required this.clientId,
       required this.scope,
       required this.state,
@@ -36,11 +36,28 @@ class OAuthPreviewScreen extends StatefulWidget {
 class _OAuthPreviewScreenState extends State<OAuthPreviewScreen> {
   bool loading = true;
   String finalUrl = "";
+
   @override
   void initState() {
     super.initState();
+    makeFinalUrl();
+  }
+
+  makeFinalUrl() {
+    String finalScope = widget.scope.join(" ");
     finalUrl =
-        "${widget.baseUrl}/login?scope=${widget.scope}&clientId=${widget.clientId}&redirectUrl=${widget.redirectUrl}&state=${widget.state}";
+        "${getBaseUrlBaseOnType()}/login?scope=$finalScope&clientId=${widget.clientId}&redirectUrl=${widget.redirectUrl}&state=${widget.state}";
+    print(finalUrl);
+  }
+
+  String getBaseUrlBaseOnType() {
+    if (widget.mode == Mode.sandbox) {
+      return "https://staging-oauth.bitnob.co";
+    }
+    if (widget.mode == Mode.production) {
+      return "https://staging-oauth.bitnob.co";
+    }
+    return "";
   }
 
   @override
@@ -57,7 +74,7 @@ class _OAuthPreviewScreenState extends State<OAuthPreviewScreen> {
           alignment: Alignment.topRight,
           children: [
             WebView(
-              initialUrl: finalUrl,
+              initialUrl: Uri.parse(finalUrl).toString(),
               onPageFinished: (val) {
                 loading = false;
                 setState(() {});
@@ -66,7 +83,6 @@ class _OAuthPreviewScreenState extends State<OAuthPreviewScreen> {
               zoomEnabled: false,
               navigationDelegate: (request) {
                 if (request.url.contains("/?error=")) {
-
                   var uri = Uri.parse(request.url);
                   var error = "";
                   uri.queryParameters.forEach((k, v) {
@@ -76,7 +92,8 @@ class _OAuthPreviewScreenState extends State<OAuthPreviewScreen> {
                   });
                   Navigator.pop(context);
                   widget.failCallback(error);
-                } else if (!request.url.contains(widget.baseUrl ?? "") && request.url.contains(widget.redirectUrl ?? "")) {
+                } else if (!request.url.contains(getBaseUrlBaseOnType()) &&
+                    request.url.contains(widget.redirectUrl)) {
                   Navigator.pop(context);
                   widget.successCallback("Success");
                 }

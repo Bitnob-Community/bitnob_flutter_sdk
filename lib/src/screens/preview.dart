@@ -1,32 +1,32 @@
 import 'dart:async';
+import 'package:bitnob/bitnob.dart';
 import 'package:bitnob/src/models/model.dart';
+import 'package:bitnob/src/utils/const.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import '../utils/const.dart';
 
-// ignore: must_be_immutable
 class PreViewScreen extends StatefulWidget {
-  String? baseUrl;
-  String? description;
-  String? callbackUrl;
-  String? successUrl;
-  String? notificationEmail;
-  String? customerEmail;
-  int? satoshis;
-  String? reference;
-  String? publicKey;
-  Function(
+  final Mode? mode;
+  final String? description;
+  final String? callbackUrl;
+  final String? successUrl;
+  final String? notificationEmail;
+  final String? customerEmail;
+  final int? satoshis;
+  final String? reference;
+  final String? publicKey;
+  final Function(
     dynamic response,
   ) successCallback;
-  Function(
+  final Function(
     dynamic response,
   ) failCallback;
-  Function(dynamic response) closeCallBack;
-  PreViewScreen(
+  final Function(dynamic response) closeCallBack;
+  const PreViewScreen(
       {Key? key,
-      required this.baseUrl,
+      required this.mode,
       required this.failCallback,
       required this.successCallback,
       required this.closeCallBack,
@@ -54,7 +54,7 @@ class _PreViewScreenState extends State<PreViewScreen> {
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _apicallForPayMent();
     });
   }
@@ -70,9 +70,9 @@ class _PreViewScreenState extends State<PreViewScreen> {
   _apiCallForCheckPaymentStatus() {
     timer = Timer.periodic(const Duration(seconds: 5), (timer) async {
       try {
-        Response response = await dio
-            .get(widget.baseUrl! + checkout_status + modelClass!.data!.id!);
-
+        Response response = await dio.get(
+          "${getBaseUrlBaseOnType()}$checkoutStatus${modelClass?.data?.id ?? ""}",
+        );
         if (response.data['data']['status'].toString().toLowerCase() ==
             "paid") {
           timer.cancel();
@@ -88,7 +88,7 @@ class _PreViewScreenState extends State<PreViewScreen> {
   _apicallForPayMent() async {
     try {
       Response response = await dio.get(
-        widget.baseUrl! + create_checkout,
+        "${getBaseUrlBaseOnType()}$createCheckout",
         queryParameters: {
           "description": widget.description,
           "callbackUrl": widget.callbackUrl,
@@ -115,6 +115,16 @@ class _PreViewScreenState extends State<PreViewScreen> {
       widget.failCallback(e.error);
       Navigator.pop(context);
     }
+  }
+
+  String getBaseUrlBaseOnType() {
+    if (widget.mode == Mode.sandbox) {
+      return "https://staging-api.flowertop.xyz";
+    }
+    if (widget.mode == Mode.production) {
+      return "https://staging-api.flowertop.xyz";
+    }
+    return "";
   }
 
   @override
@@ -147,14 +157,15 @@ class _PreViewScreenState extends State<PreViewScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                    widget.closeCallBack("Close Call Back");
-                  },
-                  icon: const Icon(
-                    Icons.close,
-                    color: Colors.black,
-                  )),
+                onPressed: () {
+                  Navigator.pop(context);
+                  widget.closeCallBack("Close Call Back");
+                },
+                icon: const Icon(
+                  Icons.close,
+                  color: Colors.black,
+                ),
+              ),
             ),
           ],
         ),
