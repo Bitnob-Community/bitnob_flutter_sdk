@@ -37,14 +37,14 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<void> payWithOptions() async {
     await _bitNob.buildWithOptions(
       mode: Mode.sandbox,
-      description: "test133",
+      description: "test133d",
       callbackUrl: "test133",
       successUrl: "",
-      notificationEmail: "test133",
-      customerEmail: "test133",
+      notificationEmail: "kasodariyadipak017@gmail.com",
+      customerEmail: "kasodariyadipak017@gmail.com",
       satoshis: 2000,
-      reference: "test133",
-      publicKey: "your public key",
+      reference: "test13fdsd3",
+      publicKey: "pk.0331f3a.f860370f9e629806ae72e9280e05d4b9",
       context: context,
       failCallback: (fail) {
         if (kDebugMode) {
@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<void> initiateOauth() async {
     await _bitNob.initiateOauth(
       mode: Mode.sandbox,
-      clientId: "fe2b4768b3c5afdb27b2",
+      clientId: "daec5775a95da44e7bca",
       scope: [
         "user:custom_ln_address",
         "user:verification_level",
@@ -75,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
         "user:username",
         "user:ln_address"
       ],
-      state: "55jbjfgdfjhfghfhgsf",
+      state: "bdfgdfgdfgdf",
       redirectUrl: "https://www.google.com/",
       failCallback: (fail) {
         if (kDebugMode) {

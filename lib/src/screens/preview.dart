@@ -54,7 +54,7 @@ class _PreViewScreenState extends State<PreViewScreen> {
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
       _apicallForPayMent();
     });
   }
@@ -119,10 +119,10 @@ class _PreViewScreenState extends State<PreViewScreen> {
 
   String getBaseUrlBaseOnType() {
     if (widget.mode == Mode.sandbox) {
-      return "https://staging-api.flowertop.xyz";
+      return "https://sandboxapi.bitnob.co";
     }
     if (widget.mode == Mode.production) {
-      return "https://staging-api.flowertop.xyz";
+      return "https://api.bitnob.co";
     }
     return "";
   }

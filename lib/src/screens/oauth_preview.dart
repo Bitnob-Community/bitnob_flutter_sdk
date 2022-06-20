@@ -52,10 +52,10 @@ class _OAuthPreviewScreenState extends State<OAuthPreviewScreen> {
 
   String getBaseUrlBaseOnType() {
     if (widget.mode == Mode.sandbox) {
-      return "https://staging-oauth.bitnob.co";
+      return "https://sandbox-oauth.bitnob.co";
     }
     if (widget.mode == Mode.production) {
-      return "https://staging-oauth.bitnob.co";
+      return "https://oauth.bitnob.co";
     }
     return "";
   }
