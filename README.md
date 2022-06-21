@@ -43,7 +43,7 @@ final BitNob _bitNob = BitNob();
 
 ## Checkout Example
 ```dart
-await _bitNob.buildWithOptions(
+await _bitNob.initialCheckout(
       mode: "set mode(sandbox or production)",
       description: "test",
       callbackUrl: "test",

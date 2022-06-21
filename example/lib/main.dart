@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final BitNob _bitNob = BitNob();
 
   Future<void> payWithOptions() async {
-    await _bitNob.buildWithOptions(
+    await _bitNob.initialCheckout(
       mode: Mode.sandbox,
       description: "test133d",
       callbackUrl: "test133",
