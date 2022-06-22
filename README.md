@@ -124,7 +124,7 @@ Note: successUrl keep blank.
 | Platform | Screenshot |
 | ------------- | ------------- |
 | Android | <img height="480" src="https://js.bitnob.co/assets/android_oauth.png"> <img height="480" src="https://js.bitnob.co/assets/android_oauth_authorize.png"> |
-| iOS | <img height="414" src="https://js.bitnob.co/assets/ios_oauth.PNG"> <img height="414" src="https://bitnob.co/assets/ios_oauth_authorize.PNG"> |
+| iOS | <img height="414" src="https://www.js.bitnob.co/assets/ios_oauth.PNG"> <img height="414" src="https://www.js.bitnob.co/assets/ios_oauth_authorize.PNG"> |
 
 
 # License
