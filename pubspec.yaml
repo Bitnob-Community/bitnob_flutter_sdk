@@ -1,5 +1,6 @@
 name: bitnob
-description: This SDK equips online businesses using flutter with the ability to accept and process bitcoin payments via on-chain or lightning seamlessly.
+description: Bitnob SDK equips online businesses using react native with the ability to integrate our API features easily.
+
 version: 0.0.7
 homepage: https://github.com/bitnob/bitnob_flutter_sdk.git
 

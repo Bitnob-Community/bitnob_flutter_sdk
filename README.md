@@ -1,6 +1,8 @@
 # Bitnob SDK
 
-Bitnob SDK allows you to integrate our API features easily, Examples are Checkout, Oauth, etc.
+Bitnob SDK equips online businesses using react native with the ability to integrate our API features easily. Example are;
+-  Checkout: Accept and process bitcoin payments via on-chain or lightning seamlessly.
+-  Oauth: Allows you to access Bitnob user details
 
 ## Platform Support
 
@@ -26,7 +28,7 @@ You just need to add `bitnob` as a [dependency in your pubspec.yaml file](https:
 
 ```yaml
 dependencies:
-  bitnob: ^x.x.x
+  bitnob: ^0.0.7
 ```
 -Run `flutter packages get` to install the package
 
