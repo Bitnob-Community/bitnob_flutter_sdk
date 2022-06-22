@@ -1,13 +1,12 @@
-# bitnob
+# Bitnob SDK
 
-This SDK equips online businesses using flutter with the ability to accept and process bitcoin payments via on-chain or lightning seamlessly.
-
+Bitnob SDK allows you to integrate our API features easily, Examples are Checkout, Oauth, etc.
 
 ## Platform Support
 
-| Android | iOS | 
+| Android | iOS |
 | :-----: | :-: |
-|   ✔️    | ✔️  |  
+|   ✔️    | ✔️  |
 
 ## ⚙️ Android Setup
     No any requirement
@@ -27,7 +26,7 @@ You just need to add `bitnob` as a [dependency in your pubspec.yaml file](https:
 
 ```yaml
 dependencies:
-  bitnob: ^0.0.6
+  bitnob: ^x.x.x
 ```
 -Run `flutter packages get` to install the package
 
@@ -40,10 +39,14 @@ import 'package:bitnob/bitnob.dart';
 ```dart
 final BitNob _bitNob = BitNob();
 ```
+## How to get "publicKey" to use bitnob SDK?
+
+
+- Create a [`Sandbox`](https://sandboxapp.bitnob.co/) or [`Production`](https://app.bitnob.co/) Account, See the keys at Setting > Developers tab, See [`Documentation`](https://docs.bitnob.com/docs/api-keys) for more.
 
 ## Checkout Example
 ```dart
-await _bitNob.initialCheckout(
+await _bitNob.initiateCheckout(
       mode: "set mode(sandbox or production)",
       description: "test",
       callbackUrl: "test",
@@ -69,15 +72,16 @@ await _bitNob.initialCheckout(
 ```
 Note: successUrl keep blank.
 ```
-## How to get "publicKey" to use bitnob SDK?
 
-- Please [`Sign up`](https://app.bitnob.co/accounts/signup) here, Then follow this [`link`](https://docs.bitnob.com/docs/api-keys) to get publicKey.
+## How to get cliendID, scope, state to use bitnob OAuth?
+
+- From your dashboard, create an App in Settings > Developers > Oauth apps to get them, See more in our [`OAuth Documentation`](https://docs.bitnob.com/docs/bitnob-for-business-oauth-20).
 
 ## OAuth Example
 ```dart
     await _bitNob.initiateOauth(
       mode: "set mode(sandbox or production)",
-      clientId: "fe2b4768b3c5afdb27b2",
+      clientId: "your clientId",
       scope: [
         "user:custom_ln_address",
         "user:verification_level",
@@ -86,7 +90,7 @@ Note: successUrl keep blank.
         "user:ln_address"
       ],
       state: "bbdbbbjjk",
-      redirectUrl: "https://www.google.com",
+      redirectUrl: "your redirect url",
       failCallback: (fail) {
         if (kDebugMode) {
           print("Fail=============> " + fail.toString());
@@ -105,18 +109,23 @@ Note: successUrl keep blank.
       context: context,
     );
 ```
-## How to get "clientId" to use bitnob SDK?
-
-- Please [`Sign up`](https://app.bitnob.co/accounts/signup) here, Then follow this [`link`](https://docs.bitnob.com/docs/bitnob-for-business-oauth-20) to get publicKey.
 
 
-
-## 📷 Screenshots
+## 📷 Checkout Screenshots
 
 | Platform | Screenshot |
 | ------------- | ------------- |
 | Android | <img height="480" src="https://bitnobwhmcsplugin.s3.eu-west-2.amazonaws.com/images/android_checkout.png"> <img height="480" src="https://bitnobwhmcsplugin.s3.eu-west-2.amazonaws.com/images/android_payment_success.png"> <img height="480" src="https://bitnobwhmcsplugin.s3.eu-west-2.amazonaws.com/images/android_timeout.png"> |
 | iOS | <img height="414" src="https://bitnobwhmcsplugin.s3.eu-west-2.amazonaws.com/images/ios_checkout.png"> <img height="414" src="https://bitnobwhmcsplugin.s3.eu-west-2.amazonaws.com/images/ios_payment_success.png">  <img height="414" src="https://bitnobwhmcsplugin.s3.eu-west-2.amazonaws.com/images/ios_timeout1.png"> |
+
+
+## 📷 OAuth Screenshots
+
+| Platform | Screenshot |
+| ------------- | ------------- |
+| Android | <img height="480" src="https://js.bitnob.co/assets/android_oauth.png"> <img height="480" src="https://js.bitnob.co/assets/android_oauth_authorize.png"> |
+| iOS | <img height="414" src="https://js.bitnob.co/assets/ios_oauth.PNG"> <img height="414" src="https://bitnob.co/assets/ios_oauth_authorize.PNG"> |
+
 
 # License
 ```

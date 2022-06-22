@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [0.0.7] - (22th June 2022)
+
+* Support Oauth
+
 ## [0.0.6] - (4th April 2022)
 
 * Update the example app

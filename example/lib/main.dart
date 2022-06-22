@@ -35,16 +35,16 @@ class _MyHomePageState extends State<MyHomePage> {
   final BitNob _bitNob = BitNob();
 
   Future<void> payWithOptions() async {
-    await _bitNob.initialCheckout(
+    await _bitNob.initiateCheckout(
       mode: Mode.sandbox,
-      description: "test133d",
-      callbackUrl: "test133",
+      description: "test",
+      callbackUrl: "test",
       successUrl: "",
-      notificationEmail: "kasodariyadipak017@gmail.com",
-      customerEmail: "kasodariyadipak017@gmail.com",
+      notificationEmail: "customer@gmail.com",
+      customerEmail: "customer@gmail.com",
       satoshis: 2000,
-      reference: "test13fdsd3",
-      publicKey: "pk.0331f3a.f860370f9e629806ae72e9280e05d4b9",
+      reference: "test",
+      publicKey: "your public key",
       context: context,
       failCallback: (fail) {
         if (kDebugMode) {
@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<void> initiateOauth() async {
     await _bitNob.initiateOauth(
       mode: Mode.sandbox,
-      clientId: "daec5775a95da44e7bca",
+      clientId: "your clientId",
       scope: [
         "user:custom_ln_address",
         "user:verification_level",
@@ -75,8 +75,8 @@ class _MyHomePageState extends State<MyHomePage> {
         "user:username",
         "user:ln_address"
       ],
-      state: "bdfgdfgdfgdf",
-      redirectUrl: "https://www.google.com/",
+      state: "test",
+      redirectUrl: "your redirect url",
       failCallback: (fail) {
         if (kDebugMode) {
           print("Fail=============> " + fail.toString());

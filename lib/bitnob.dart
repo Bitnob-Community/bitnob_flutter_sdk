@@ -8,7 +8,7 @@ import 'src/screens/preview.dart';
 class BitNob {
   ///This method use for payment
 
-  Future initialCheckout({
+  Future initiateCheckout({
     required Mode mode,
     required String description,
     required String callbackUrl,
