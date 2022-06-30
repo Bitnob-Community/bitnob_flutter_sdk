@@ -47,7 +47,6 @@ class _OAuthPreviewScreenState extends State<OAuthPreviewScreen> {
     String finalScope = widget.scope.join(" ");
     finalUrl =
         "${getBaseUrlBaseOnType()}/login?scope=$finalScope&clientId=${widget.clientId}&redirectUrl=${widget.redirectUrl}&state=${widget.state}";
-    print(finalUrl);
   }
 
   String getBaseUrlBaseOnType() {

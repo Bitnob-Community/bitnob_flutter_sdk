@@ -54,7 +54,7 @@ class _PreViewScreenState extends State<PreViewScreen> {
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _apicallForPayMent();
     });
   }
@@ -112,7 +112,8 @@ class _PreViewScreenState extends State<PreViewScreen> {
         Navigator.pop(context);
       }
     } on DioError catch (e) {
-      widget.failCallback(e.error);
+
+      widget.failCallback(e.response);
       Navigator.pop(context);
     }
   }

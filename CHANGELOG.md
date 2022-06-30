@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [0.0.8] - (30th June 2022)
+
+* Bug Fixes
+
 ## [0.0.7] - (22th June 2022)
 
 * Support Oauth
