@@ -112,7 +112,6 @@ class _PreViewScreenState extends State<PreViewScreen> {
         Navigator.pop(context);
       }
     } on DioError catch (e) {
-
       widget.failCallback(e.response);
       Navigator.pop(context);
     }
