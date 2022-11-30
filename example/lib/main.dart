@@ -96,6 +96,31 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  Future<void> bitnobTransfer() async {
+    await _bitNob.bitnobTransfer(
+      mode: Mode.sandbox,
+      redirectUrl: "https://google.com",
+      failCallback: (fail) {
+        if (kDebugMode) {
+          print("Fail=============> " + fail.toString());
+        }
+      },
+      successCallback: (success) {
+        if (kDebugMode) {
+          print("Success=============> " + success.toString());
+        }
+      },
+      closeCallBack: (close) {
+        if (kDebugMode) {
+          print("Close=============> " + close.toString());
+        }
+      },
+      context: context,
+      publicKey: 'pk.0331f3a.f860370f9e629806ae72e9280e05d4b9',
+      senderName: 'dipak',
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,6 +145,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 await initiateOauth();
               },
               child: const Text("InitiateOauth"),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                await bitnobTransfer();
+              },
+              child: const Text("bitnobTransfer"),
             ),
           ],
         ),

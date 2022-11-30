@@ -1,6 +1,7 @@
 library bitnob;
 
 import 'package:bitnob/src/screens/oauth_preview.dart';
+import 'package:bitnob/src/screens/bitnob_transfer_screen.dart';
 import 'package:flutter/material.dart';
 import 'src/screens/preview.dart';
 
@@ -78,6 +79,35 @@ class BitNob {
             redirectUrl: redirectUrl,
             scope: scope,
             state: state,
+            closeCallBack: closeCallBack,
+            failCallback: failCallback,
+            successCallback: successCallback,
+          ),
+        ));
+    return null;
+  }
+
+  ///bitnobTransfer method use for transfer money
+  Future bitnobTransfer({
+    required Mode mode,
+    required String redirectUrl,
+    required String publicKey,
+    required String senderName,
+    required Function(dynamic response) successCallback,
+    required Function(dynamic response) failCallback,
+    required Function(dynamic response) closeCallBack,
+    required BuildContext context,
+  }) async {
+    ///Here navigate to the webview screen.
+
+    await Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => BitnobTransferScreen(
+            mode: mode,
+            redirectUrl: redirectUrl,
+            publicKey: publicKey,
+            senderName: senderName,
             closeCallBack: closeCallBack,
             failCallback: failCallback,
             successCallback: successCallback,
