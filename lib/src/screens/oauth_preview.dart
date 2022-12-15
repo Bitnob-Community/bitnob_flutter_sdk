@@ -80,7 +80,8 @@ class _OAuthPreviewScreenState extends State<OAuthPreviewScreen> {
               },
               javascriptMode: JavascriptMode.unrestricted,
               zoomEnabled: false,
-              navigationDelegate: (request) {
+              
+              navigationDelegate: (request) { 
                 if (request.url.contains("/?error=")) {
                   var uri = Uri.parse(request.url);
                   var error = "";

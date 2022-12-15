@@ -116,8 +116,8 @@ class _MyHomePageState extends State<MyHomePage> {
         }
       },
       context: context,
-      publicKey: 'pk.0331f3a.f860370f9e629806ae72e9280e05d4b9',
-      senderName: 'dipak',
+      publicKey: "your public key",
+      senderName: "sender name",
     );
   }
 

@@ -1,4 +1,6 @@
-// ignore_for_file: prefer_interpolation_to_compose_strings
+// ignore_for_file: prefer_interpolation_to_compose_strings, prefer_adjacent_string_concatenation
+
+import 'dart:convert';
 
 import 'package:bitnob/bitnob.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +38,7 @@ class BitnobTransferScreen extends StatefulWidget {
 class _BitnobTransferScreenState extends State<BitnobTransferScreen> {
   bool loading = true;
   String finalUrl = "";
-
+  late WebViewController _webViewController;
   @override
   void initState() {
     super.initState();
@@ -58,6 +60,9 @@ class _BitnobTransferScreenState extends State<BitnobTransferScreen> {
     return "";
   }
 
+  String script = 'window.addEventListener("message", receiveMessage, false);' +
+      'function receiveMessage(event) {Print.postMessage(event.data);}';
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -76,47 +81,34 @@ class _BitnobTransferScreenState extends State<BitnobTransferScreen> {
               onPageFinished: (val) {
                 loading = false;
                 setState(() {});
+
+                _webViewController.runJavascript(script);
               },
               javascriptMode: JavascriptMode.unrestricted,
               zoomEnabled: false,
+              onWebViewCreated: (controller) {
+                _webViewController = controller;
+              },
+              debuggingEnabled: true,
               javascriptChannels: {
                 JavascriptChannel(
-                  name: "message",
-                  onMessageReceived: (message) {
-                    print(message);
-                  },
-                ),
-                JavascriptChannel(
-                  name: "modal_closed",
-                  onMessageReceived: (message) {
-                    print(message);
-                  },
-                ),
-                JavascriptChannel(
-                  name: "modal_opened",
-                  onMessageReceived: (message) {
-                    print(message);
-                  },
-                ),
-              },
-              navigationDelegate: (request) {
-                print("=========> " + request.url);
-                // if (request.url.contains("/?error=")) {
-                //   var uri = Uri.parse(request.url);
-                //   var error = "";
-                //   uri.queryParameters.forEach((k, v) {
-                //     if (k == "error") {
-                //       error = v;
-                //     }
-                //   });
-                //   Navigator.pop(context);
-                //   widget.failCallback(error);
-                // } else if (!request.url.contains(getBaseUrlBaseOnType()) &&
-                //     request.url.contains(widget.redirectUrl)) {
-                //   Navigator.pop(context);
-                //   widget.successCallback("Success");
-                // }
-                return NavigationDecision.navigate;
+                    name: 'Print',
+                    onMessageReceived: (JavascriptMessage message) {
+                      try {
+                        if (message.message == "modal_closed") {
+                          widget.closeCallBack("Close Call Back");
+                          Navigator.pop(context);
+                        }  else if (message.message == "modal_opened") {
+
+                        }else {
+                          widget.successCallback(jsonDecode(message.message));
+                          Navigator.pop(context);
+                        }
+                      } catch (e) {
+                        widget.failCallback(e);
+                        Navigator.pop(context);
+                      }
+                    }),
               },
             ),
             if (loading)
