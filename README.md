@@ -28,7 +28,7 @@ You just need to add `bitnob` as a [dependency in your pubspec.yaml file](https:
 
 ```yaml
 dependencies:
-  bitnob: ^0.0.9
+  bitnob: ^0.1.0
 ```
 -Run `flutter packages get` to install the package
 
@@ -112,6 +112,36 @@ Note: successUrl keep blank.
     );
 ```
 
+## How to get "publicKey" to use bitnob SDK?
+
+
+- Create a [`Sandbox`](https://sandboxapp.bitnob.co/) or [`Production`](https://app.bitnob.co/) Account, See the keys at Setting > Developers tab, See [`Documentation`](https://docs.bitnob.com/docs/api-keys) for more.
+
+## Transfer Example
+```dart
+await _bitNob.bitnobTransfer(
+      mode: Mode.sandbox,
+      redirectUrl: "your redirect url",
+      failCallback: (fail) {
+        if (kDebugMode) {
+          print("Fail=============> " + fail.toString());
+        }
+      },
+      successCallback: (success) {
+        if (kDebugMode) {
+          print("Success=============> " + success.toString());
+        }
+      },
+      closeCallBack: (close) {
+        if (kDebugMode) {
+          print("Close=============> " + close.toString());
+        }
+      },
+      context: context,
+      publicKey: 'your public key',
+      senderName: 'sender name',
+    );
+```
 
 ## 📷 Checkout Screenshots
 
@@ -122,6 +152,13 @@ Note: successUrl keep blank.
 
 
 ## 📷 OAuth Screenshots
+
+| Platform | Screenshot |
+| ------------- | ------------- |
+| Android | <img height="480" src="https://js.bitnob.co/assets/android_oauth.png"> <img height="480" src="https://js.bitnob.co/assets/android_oauth_authorize.png"> |
+| iOS | <img height="414" src="https://www.js.bitnob.co/assets/ios_oauth.PNG"> <img height="414" src="https://www.js.bitnob.co/assets/ios_oauth_authorize.PNG"> |
+
+## 📷 Transfer Screenshots
 
 | Platform | Screenshot |
 | ------------- | ------------- |

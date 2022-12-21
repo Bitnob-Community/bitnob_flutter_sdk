@@ -99,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<void> bitnobTransfer() async {
     await _bitNob.bitnobTransfer(
       mode: Mode.sandbox,
-      redirectUrl: "https://google.com",
+      redirectUrl: "your redirect url",
       failCallback: (fail) {
         if (kDebugMode) {
           print("Fail=============> " + fail.toString());
@@ -116,8 +116,8 @@ class _MyHomePageState extends State<MyHomePage> {
         }
       },
       context: context,
-      publicKey: "your public key",
-      senderName: "sender name",
+      publicKey: 'your public key',
+      senderName: 'test',
     );
   }
 

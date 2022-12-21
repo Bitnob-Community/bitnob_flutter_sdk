@@ -39,6 +39,7 @@ class _BitnobTransferScreenState extends State<BitnobTransferScreen> {
   bool loading = true;
   String finalUrl = "";
   late WebViewController _webViewController;
+  bool isPopScreen = false;
   @override
   void initState() {
     super.initState();
@@ -97,16 +98,24 @@ class _BitnobTransferScreenState extends State<BitnobTransferScreen> {
                       try {
                         if (message.message == "modal_closed") {
                           widget.closeCallBack("Close Call Back");
-                          Navigator.pop(context);
-                        }  else if (message.message == "modal_opened") {
-
-                        }else {
+                          if (!isPopScreen) {
+                            isPopScreen = true;
+                            Navigator.pop(context);
+                          }
+                        } else if (message.message == "modal_opened") {
+                        } else {
                           widget.successCallback(jsonDecode(message.message));
-                          Navigator.pop(context);
+                          if (!isPopScreen) {
+                            isPopScreen = true;
+                            Navigator.pop(context);
+                          }
                         }
                       } catch (e) {
                         widget.failCallback(e);
-                        Navigator.pop(context);
+                        if (!isPopScreen) {
+                          isPopScreen = true;
+                          Navigator.pop(context);
+                        }
                       }
                     }),
               },
@@ -115,18 +124,6 @@ class _BitnobTransferScreenState extends State<BitnobTransferScreen> {
               const Center(
                 child: CircularProgressIndicator(),
               ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                    widget.closeCallBack("Close Call Back");
-                  },
-                  icon: const Icon(
-                    Icons.close,
-                    color: Colors.black,
-                  )),
-            ),
           ],
         ),
       ),
