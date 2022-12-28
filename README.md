@@ -162,8 +162,8 @@ await _bitNob.bitnobTransfer(
 
 | Platform | Screenshot |
 | ------------- | ------------- |
-| Android | <img height="480" src="https://js.bitnob.co/assets/android_oauth.png"> <img height="480" src="https://js.bitnob.co/assets/android_oauth_authorize.png"> |
-| iOS | <img height="414" src="https://www.js.bitnob.co/assets/ios_oauth.PNG"> <img height="414" src="https://www.js.bitnob.co/assets/ios_oauth_authorize.PNG"> |
+| Android | <img height="480" src="https://www.js.bitnob.co/assets/transfers_sdk/android/1.png"> <img height="480" src="https://www.js.bitnob.co/assets/transfers_sdk/android/2.png"> <img height="480" src="https://www.js.bitnob.co/assets/transfers_sdk/android/3.png"> <img height="480" src="https://www.js.bitnob.co/assets/transfers_sdk/android/4.png"> |
+| iOS | <img height="480" src="https://www.js.bitnob.co/assets/transfers_sdk/ios/1.png"> <img height="480" src="https://www.js.bitnob.co/assets/transfers_sdk/ios/2.png"> <img height="480" src="https://www.js.bitnob.co/assets/transfers_sdk/ios/3.png"> <img height="480" src="https://www.js.bitnob.co/assets/transfers_sdk/ios/4.png"> |
 
 
 # License
