@@ -3,6 +3,7 @@
 Bitnob SDK equips online businesses using react native with the ability to integrate our API features easily. Example are;
 -  Checkout: Accept and process bitcoin payments via on-chain or lightning seamlessly
 -  Oauth: Allows you to access Bitnob user details
+-  Transfers: Allows businesses to transfer funds to a Bitnob customer, or local mobile money and bank accounts in supported African countries
 
 ## Platform Support
 
