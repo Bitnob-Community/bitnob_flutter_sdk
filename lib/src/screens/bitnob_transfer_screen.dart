@@ -107,7 +107,9 @@ class _BitnobTransferScreenState extends State<BitnobTransferScreen> {
                           widget.successCallback(jsonDecode(message.message));
                           if (!isPopScreen) {
                             isPopScreen = true;
-                            Navigator.pop(context);
+                            Future.delayed(const Duration(seconds: 5), () {
+                              Navigator.pop(context);
+                            });
                           }
                         }
                       } catch (e) {

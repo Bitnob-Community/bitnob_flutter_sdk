@@ -29,7 +29,7 @@ You just need to add `bitnob` as a [dependency in your pubspec.yaml file](https:
 
 ```yaml
 dependencies:
-  bitnob: ^0.1.0
+  bitnob: ^0.1.1
 ```
 -Run `flutter packages get` to install the package
 

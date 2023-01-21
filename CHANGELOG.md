@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [0.1.1] - (21th Jan 2023)
+
+* Bug Fixes
+* 
 ## [0.1.0] - (21st December 2022)
 
 * Support InitiateTransfer

@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:async';
 import 'package:bitnob/bitnob.dart';
 import 'package:bitnob/src/models/model.dart';
